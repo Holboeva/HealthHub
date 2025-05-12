@@ -1,0 +1,140 @@
+{% extends 'base/include.html' %}
+{% block body %}
+    <section class="bde-section-15-100 bde-section">
+
+
+        <div class="section-container">
+            <div class="bde-code-block-15-101 bde-code-block">
+
+
+                <div id="tutor-registration-wrap">
+
+
+                    <form method="post" enctype="multipart/form-data" id="tutor-registration-form">
+                        <input type="hidden" name="tutor_course_enroll_attempt" value="">
+
+                        <input type="hidden" id="_tutor_nonce" name="_tutor_nonce" value="073fc72696"><input
+                            type="hidden" name="_wp_http_referer"
+                            value="/student-registration/?redirect_to=https%3A%2F%2Fnutrinora.se%2Fdashboard%2F"> <input
+                            type="hidden" value="tutor_register_student" name="tutor_action">
+
+
+                        <div class="tutor-form-row">
+                            <div class="tutor-form-col-6">
+                                <div class="tutor-form-group">
+                                    <label>
+                                        Ism </label>
+
+                                    <input type="text" name="first_name" value="" placeholder="Ism" required=""
+                                           autocomplete="given-name">
+                                </div>
+                            </div>
+
+                            <div class="tutor-form-col-6">
+                                <div class="tutor-form-group">
+                                    <label>
+                                        Familiya </label>
+
+                                    <input type="text" name="last_name" value="" placeholder="Familiya" required=""
+                                           autocomplete="family-name">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tutor-form-row">
+                            <div class="tutor-form-col-6">
+                                <div class="tutor-form-group">
+                                    <label>
+                                        Foydalanuvchi nomi </label>
+
+                                    <input type="text" name="user_login" class="tutor_user_name" value=""
+                                           placeholder="Foydalanuvchi nomi" required="" autocomplete="username">
+                                </div>
+                            </div>
+
+                            <div class="tutor-form-col-6">
+                                <div class="tutor-form-group">
+                                    <label>
+                                        Elektron pochta </label>
+
+                                    <input type="text" name="email" value="" placeholder="Elektron pochta" required=""
+                                           autocomplete="email">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="tutor-form-row">
+                            <div class="tutor-form-col-6">
+                                <div class="tutor-form-group">
+                                    <div class="tutor-password-strength-checker">
+                                        <div class="tutor-password-field">
+                                            <label>
+                                                Parol </label>
+
+                                            <input class="password-checker" id="tutor-new-password" type="password"
+                                                   name="password" value="" placeholder="Parol" required=""
+                                                   autocomplete="new-password" style="margin-bottom: 0;">
+                                            <span class="show-hide-btn"></span>
+                                        </div>
+
+                                        <div class="tutor-password-strength-hint">
+                                            <div class="indicator">
+                                                <span class="weak"></span>
+                                                <span class="medium"></span>
+                                                <span class="strong"></span>
+                                            </div>
+                                            <div class="text tutor-fs-7 tutor-color-muted"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tutor-form-col-6">
+                                <div class="tutor-form-group">
+                                    <label>
+                                        Parolni tasdiqlash </label>
+
+                                    <div class="tutor-form-wrap">
+                                        <span class="tutor-validation-icon tutor-icon-mark tutor-color-success tutor-form-icon tutor-form-icon-reverse"
+                                              style="display: none;"></span>
+                                        <input type="password" name="password_confirmation" value=""
+                                               placeholder="Parolni tasdiqlash" required="" autocomplete="new-password"
+                                               style="margin-bottom: 0;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tutor-form-row">
+                            <div class="tutor-form-col-12">
+                                <div class="tutor-form-group">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="tutor-mb-24">
+                            Ro'yxatdan o'tish orqali men veb-saytga qo'shilaman <a target="_blank"
+                                                                                   href="https://nutrinora.se/foydalanish-shartlari/"
+                                                                                   title="Foydalanish shartlari">Foydalanish
+                            shartlari</a>
+                        </div>
+
+                        <div>
+                            <button type="submit" name="tutor_register_student_btn" value="register"
+                                    class="tutor-btn tutor-btn-primary tutor-btn-block">Roʻyxatdan oʻtish
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

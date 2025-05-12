@@ -1,0 +1,90 @@
+{% extends 'base/include.html' %}
+{% block body %}
+	<section class="bde-section-356-100 bde-section">
+
+
+    <div class="section-container">
+        <div class="bde-div-356-101 bde-div">
+
+
+            <div class="bde-shortcode-356-102 bde-shortcode">
+
+                <div class="tutor-wrap tutor-page-wrap post-356 page type-page status-publish hentry">
+                    <div class="tutor-template-segment tutor-login-wrap">
+                        <div class="tutor-login-form-wrapper">
+                            <div class="tutor-fs-5 tutor-color-black tutor-mb-32">
+                                Salom, yana xush kelibsiz!
+                            </div>
+                            <form id="tutor-login-form" method="post">
+                                <input type="hidden" id="_tutor_nonce" name="_tutor_nonce" value="45809053bd"><input
+                                    type="hidden" name="_wp_http_referer" value="/login/"> <input type="hidden"
+                                                                                                  name="tutor_action"
+                                                                                                  value="tutor_user_login">
+                                <input type="hidden" name="redirect_to" value="https://nutrinora.se/dashboard/">
+
+                                <div class="tutor-mb-20">
+                                    <input type="text" class="tutor-form-control"
+                                           placeholder="Foydalanuvchi nomi yoki elektron pochta manzili" name="log"
+                                           value="" size="20" required="">
+                                </div>
+
+                                <div class="tutor-mb-32">
+                                    <input type="password" class="tutor-form-control" placeholder="Parol" name="pwd"
+                                           value="" size="20" required="">
+                                </div>
+
+                                <div class="tutor-login-error"></div>
+                                <input type="hidden" name="timezone" value="Asia/Tashkent">
+                                <script>
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        const timezone = document.querySelector('input[name="timezone"]');
+                                        if (timezone) {
+                                            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+                                            timezone.value = tz
+                                        }
+                                    });
+                                </script>
+                                <div class="tutor-d-flex tutor-justify-between tutor-align-center tutor-mb-40">
+                                    <div class="tutor-form-check">
+                                        <input id="tutor-login-agmnt-1" type="checkbox"
+                                               class="tutor-form-check-input tutor-bg-black-40" name="rememberme"
+                                               value="forever">
+                                        <label for="tutor-login-agmnt-1" class="tutor-fs-7 tutor-color-muted">
+                                            Meni tizimga kiring </label>
+                                    </div>
+                                    <a href="https://nutrinora.se/dashboard/retrieve-password"
+                                       class="tutor-btn tutor-btn-ghost">
+                                        Parolni unutdingizmi? </a>
+                                </div>
+
+                                <button type="submit" class="tutor-btn tutor-btn-primary tutor-btn-block">
+                                    Tizimga kirish
+                                </button>
+
+                                <div class="tutor-text-center tutor-fs-6 tutor-color-secondary tutor-mt-20">
+                                    Hisobingiz yo'qmi?&nbsp;
+                                    <a href="https://nutrinora.se/student-registration/?redirect_to=https://nutrinora.se/login/"
+                                       class="tutor-btn tutor-btn-link">
+                                        Hozir roʻyxatdan oʻting </a>
+                                </div>
+                            </form>
+                            <script>
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    var {__} = wp.i18n;
+                                    var loginModal = document.querySelector('.tutor-modal.tutor-login-modal');
+                                    var errors = [];
+                                    if (loginModal && errors.length) {
+                                        loginModal.classList.add('tutor-is-active');
+                                    }
+                                });
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
