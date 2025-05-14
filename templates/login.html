@@ -1,90 +1,261 @@
-{% extends 'base/include.html' %}
-{% block body %}
-	<section class="bde-section-356-100 bde-section">
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tizimga kirish</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
 
+        .container {
+            max-width: 450px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+        }
 
-    <div class="section-container">
-        <div class="bde-div-356-101 bde-div">
+        /* Form Section */
+        #form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
+        /* Input Fields */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+        }
 
-            <div class="bde-shortcode-356-102 bde-shortcode">
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #4285f4;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.2);
+        }
 
-                <div class="tutor-wrap tutor-page-wrap post-356 page type-page status-publish hentry">
-                    <div class="tutor-template-segment tutor-login-wrap">
-                        <div class="tutor-login-form-wrapper">
-                            <div class="tutor-fs-5 tutor-color-black tutor-mb-32">
-                                Salom, yana xush kelibsiz!
-                            </div>
-                            <form id="tutor-login-form" method="post">
-                                <input type="hidden" id="_tutor_nonce" name="_tutor_nonce" value="45809053bd"><input
-                                    type="hidden" name="_wp_http_referer" value="/login/"> <input type="hidden"
-                                                                                                  name="tutor_action"
-                                                                                                  value="tutor_user_login">
-                                <input type="hidden" name="redirect_to" value="https://nutrinora.se/dashboard/">
+        /* Password Toggle */
+        .password-toggle {
+            position: relative;
+        }
 
-                                <div class="tutor-mb-20">
-                                    <input type="text" class="tutor-form-control"
-                                           placeholder="Foydalanuvchi nomi yoki elektron pochta manzili" name="log"
-                                           value="" size="20" required="">
-                                </div>
+        .password-toggle-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            user-select: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+            background: none;
+            border: none;
+            font-size: 18px;
+        }
 
-                                <div class="tutor-mb-32">
-                                    <input type="password" class="tutor-form-control" placeholder="Parol" name="pwd"
-                                           value="" size="20" required="">
-                                </div>
+        .password-toggle-btn:hover {
+            opacity: 1;
+        }
 
-                                <div class="tutor-login-error"></div>
-                                <input type="hidden" name="timezone" value="Asia/Tashkent">
-                                <script>
-                                    document.addEventListener('DOMContentLoaded', function () {
-                                        const timezone = document.querySelector('input[name="timezone"]');
-                                        if (timezone) {
-                                            const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-                                            timezone.value = tz
-                                        }
-                                    });
-                                </script>
-                                <div class="tutor-d-flex tutor-justify-between tutor-align-center tutor-mb-40">
-                                    <div class="tutor-form-check">
-                                        <input id="tutor-login-agmnt-1" type="checkbox"
-                                               class="tutor-form-check-input tutor-bg-black-40" name="rememberme"
-                                               value="forever">
-                                        <label for="tutor-login-agmnt-1" class="tutor-fs-7 tutor-color-muted">
-                                            Meni tizimga kiring </label>
-                                    </div>
-                                    <a href="https://nutrinora.se/dashboard/retrieve-password"
-                                       class="tutor-btn tutor-btn-ghost">
-                                        Parolni unutdingizmi? </a>
-                                </div>
+        /* Checkbox */
+        .checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 10px 0;
+        }
 
-                                <button type="submit" class="tutor-btn tutor-btn-primary tutor-btn-block">
-                                    Tizimga kirish
-                                </button>
+        .checkbox input {
+            min-width: 18px;
+            min-height: 18px;
+            accent-color: #4285f4;
+        }
 
-                                <div class="tutor-text-center tutor-fs-6 tutor-color-secondary tutor-mt-20">
-                                    Hisobingiz yo'qmi?&nbsp;
-                                    <a href="https://nutrinora.se/student-registration/?redirect_to=https://nutrinora.se/login/"
-                                       class="tutor-btn tutor-btn-link">
-                                        Hozir roʻyxatdan oʻting </a>
-                                </div>
-                            </form>
-                            <script>
-                                document.addEventListener('DOMContentLoaded', function () {
-                                    var {__} = wp.i18n;
-                                    var loginModal = document.querySelector('.tutor-modal.tutor-login-modal');
-                                    var errors = [];
-                                    if (loginModal && errors.length) {
-                                        loginModal.classList.add('tutor-is-active');
-                                    }
-                                });
-                            </script>
-                        </div>
-                    </div>
+        .checkbox label {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .checkbox a {
+            color: #4285f4;
+            text-decoration: none;
+        }
+
+        .checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .submit {
+            width: 100%;
+            padding: 14px;
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit:hover {
+            background-color: #3367d6;
+        }
+
+        .btn-grey {
+            width: 100%;
+            padding: 14px;
+            background-color: #f1f1f1;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-grey:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer a {
+            color: #555;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer a:hover {
+            color: #4285f4;
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 500px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            input[type="email"],
+            input[type="password"] {
+                padding: 12px 14px;
+            }
+            
+            .submit, .btn-grey {
+                padding: 12px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #4285f4;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Nutrinora</h1>
+            <p>Shaxsiy kabinetingizga xush kelibsiz</p>
+        </div>
+
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div id="form-section">
+                <input type="email" name="email" id="phone2" placeholder="Email@example.com" required>
+                <div class="password-toggle">
+                    <input type="password" name="password" id="password" placeholder="Parolni kiriting" required>
+                    <button type="button" class="password-toggle-btn" onclick="togglePassword()">👁</button>
                 </div>
-
+                <div class="checkbox">
+                    <input type="checkbox" id="terms2" required>
+                    <label for="terms2">Men <a href="#">foydalanish shartlari</a> bilan tanishdim</label>
+                </div>
+                <button class='submit' type="submit">Tizimga kirish</button>
+                <button class="btn-grey" type="button" onclick="window.location.href='{% url 'send_email' %}'">
+                    SMS kod orqali kirish
+                </button>
             </div>
+        </form>
+
+        <div class="footer">
+            <a href="#">Maxfiylik siyosati</a> |
+            <a href="#">Foydalanish shartlari</a>
+            <br>Copyright © 2024 Barcha huquqlar himoyalangan
         </div>
     </div>
-</section>
-{% endblock %}
 
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const toggleBtn = document.querySelector('.password-toggle-btn');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                toggleBtn.textContent = '👁️';
+            } else {
+                passwordField.type = 'password';
+                toggleBtn.textContent = '👁';
+            }
+        }
+
+        // Add animation to form elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const formElements = document.querySelectorAll('#form-section > *');
+            formElements.forEach((el, index) => {
+                el.style.animation = `fadeIn 0.3s ease-out ${index * 0.1}s forwards`;
+                el.style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+</html>

@@ -2,23 +2,16 @@
 import os.path
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-+_amow)1&dygcyde+8bez40uxuvz0575c(33&xypbp%#2a__0^'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = []
 
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.auth',
@@ -58,7 +51,10 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'root.wsgi.application'
+
+AUTH_USER_MODEL = 'apps.User'
 
 
 # Database
@@ -117,3 +113,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR / 'media')
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'asmoholboyeva@gmail.com'
+EMAIL_HOST_PASSWORD = 'cfjwzxcthxukhvwf'
+EMAIL_USE_SSL = False
+
+LOGIN_URL = '/login/'
+LOGOUT_REDIRECT_URL = '/'
+
